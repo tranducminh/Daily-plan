@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign In</title>
+    <link rel="icon" href="http://127.0.0.1/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="http://127.0.0.1/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/CSS/login.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.0/css/all.css"
+        integrity="sha384-Mmxa0mLqhmOeaE8vgOSbKacftZcsNYDjQzuCOm6D02luYSzBG8vpaOykv9lFQ51Y" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="container">
+        <div id="header">
+            <div>
+                <a href="#" class="logo font--medium">
+                    DiscoverVietNam
+                </a>
+            </div>
+            <div id="header-options">
+                <div id="home" class="option">
+                    <div class="font--bold font--medium font--white">Home</div>
+                </div>
+                <div id="signup" class="option">
+                    <div class="font--bold font--medium font--white">Sign Up</div>
+                </div>
+            </div>
+        </div>
+        <div id="menu">
+            <div class="bar">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div id="menu-options" class="font font--bold">
+                <a href="#">Home</a>
+                <a href="../Views/signup.html">Sign up</a>
+            </div>
+        </div>
+
+        <div id="content-container">
+            <div id="content">
+                <div class="content-box">
+                    <div class="font font--bold font--big">Sign in</div>
+                </div>
+                <form action="/login" method="POST" id="loginForm">
+                    <div class="content-box">
+                        <table>
+                            <tr>
+                                <td class="font font--bold">Username</td>
+                                <td>
+                                    <input class="font" type="text" placeholder="Username" name="username" required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="font font--bold">Password</td>
+                                <td>
+                                    <input class="font" type="password" placeholder="Password" name="password" required>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="content-box">
+                        <div id="btn-login" class="btn">Log in</div>
+                    </div>
+                </form>
+
+                <div class="content-box">
+                    <div id="login-with-facebook" class="icon">
+                        <a href="/auth/facebook">
+                            <i class="fab fa-facebook-square"></i>
+                        </a>
+
+                    </div>
+                    <div id="login-with-google" class="icon">
+                        <a href="/auth/google">
+                            <i class="fab fa-google-plus"></i>
+                        </a>
+
+                    </div>
+                    <div id="login-with-instagram" class="icon">
+                        <i class="fab fa-accessible-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer"></div>
+    </div>
+    <script src="../assets/JS/login.js"></script>
+</body>
+
+</html>

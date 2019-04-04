@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../assets/CSS/signup.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.0/css/all.css"
+        integrity="sha384-Mmxa0mLqhmOeaE8vgOSbKacftZcsNYDjQzuCOm6D02luYSzBG8vpaOykv9lFQ51Y" crossorigin="anonymous">
+    <title>Sign up</title>
+</head>
+
+<body>
+    <div id="container">
+        <div id="header">
+            <div>
+                <a href="#" class="logo font--medium">
+                    DiscoverVietNam
+                </a>
+            </div>
+            <div id="header-options">
+                <div id="home" class="option">
+                    <div class="font--bold font--medium font--white">Home</div>
+                </div>
+                <div id="signup" class="option">
+                    <div class="font--bold font--medium font--white">Sign in</div>
+                </div>
+            </div>
+        </div><!-- END-HEADER -->
+
+        <div id="menu">
+            <div class="bar">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div id="menu-options" class="font font--bold">
+                <a href="#">Home</a>
+                <a href="../Views/login.html">Sign in</a>
+            </div>
+        </div>
+        <!--END-MENU-MOBILE-->
+
+        <div id="content-container">
+            <div id="content">
+                <div class="content-box">
+                    <div class="font font--bold font--big">Sign up</div>
+                </div>
+                <!--END-TITLE-->
+
+                <div class="content-box">
+                    <form action="/signup" method="POST" id="signupForm">
+                        <table>
+                            <tr>
+                                <td class="font font--bold">Full name</td>
+                                <td>
+                                    <input id="fullname" class="font" type="text" placeholder="Full name"
+                                        name="fullname" required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="font font--bold">Email</td>
+                                <td>
+                                    <input id="email" class="font" type="text" placeholder="Email" name="email"
+                                        required>
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="space"></div>
+                        <table>
+                            <tr>
+                                <td class="font font--bold">Username</td>
+                                <td>
+                                    <input id="username" class="font" type="text" placeholder="Username" name="username"
+                                        required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="font font--bold">Password</td>
+                                <td>
+                                    <input id="password" class="font" type="password" placeholder="Password"
+                                        name="password" required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="font font--bold">Confirm password</td>
+                                <td>
+                                    <input id="confirm" class="font" type="password" placeholder="Confirm"
+                                        name="confirm" required>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+
+                </div>
+                <!--END-INPUT-INFORMATION-->
+
+                <div class="content-box" style="flex-direction: row; align-items: center">
+                    <div class="checkbox">
+                        <input type="checkbox" id="agree-rules">
+                    </div>
+                    <div class="font--small font--bold">
+                        <a href="#">Tôi đồng ý với các điều khoản sử dụng.</a>
+                    </div>
+                </div>
+                <!--END-RULES-AGREEMENT-->
+
+                <div class="content-box">
+                    <div id="btn-signup" class="btn">Sign up</div>
+                </div>
+
+                <div class="content-box" style="flex-direction: row">
+                    <div id="login-with-facebook" class="icon">
+                        <i class="fab fa-facebook-square"></i>
+                    </div>
+                    <div id="login-with-google" class="icon">
+                        <i class="fab fa-google-plus"></i>
+                    </div>
+                    <div id="login-with-instagram" class="icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </div>
+                <!--END-EXTERNAL-LINK-->
+            </div>
+            <!--END-CONTENT-->
+        </div>
+        <!--END-CONTENT-CONTAINER-->
+
+
+        <div id="footer"></div>
+    </div>
+    <script src="../assets/JS/signup.js"></script>
+</body>
+
+</html>

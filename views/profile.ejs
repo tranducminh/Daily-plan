@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Profile</title>
+</head>
+<body>
+    <strong>ID</strong>: <%= user.google.id %></br>
+    <strong>Name</strong>: <%= user.google.displayname %></br>
+    <strong>username</strong>: <%= user.local.username %></br>
+    <strong>password</strong>: <%= user.local.password %></br>
+    <strong>email</strong>: <%= user.facebook.email %></br>
+    <strong>locale</strong>: <%= user.google.locale %></br>
+    <img src= <%= user.google.photoURL %> alt="avatar">
+
+</body>
+</html>
