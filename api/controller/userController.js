@@ -1,4 +1,5 @@
 let users = require("../models/userModel.js");
+var dateChange = require("./date.json");
 
 module.exports = function (app, passport) {
     app.get("/api/users", function (req, res) {
@@ -91,8 +92,13 @@ module.exports = function (app, passport) {
      * Thông tin user
      */
     app.get('/profile', isLoggedIn, function (req, res) {
+        let time = new Date();
         res.render('profile.ejs', {
-            user: req.user // truyền đối tượng user cho profile.ejs để hiển thị lên view
+            user: req.user, // truyền đối tượng user cho profile.ejs để hiển thị lên view
+            time: time,
+            date: dateChange.Date[time.getDate()],
+            month: dateChange.Date[time.getMonth()],
+            dateChange: dateChange
         });
     });
 
@@ -101,7 +107,7 @@ module.exports = function (app, passport) {
      */
     app.get('/logout', function (req, res) {
         req.logout();
-        res.redirect('/');  //khi đã đăng xuất không thể vào được các trang secret
+        res.redirect('/login');  //khi đã đăng xuất không thể vào được các trang secret
     });
 
 }
@@ -115,5 +121,5 @@ module.exports = function (app, passport) {
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
         return next();
-    res.redirect('/'); // nếu chưa đăng nhâp điều hướng quay lại trang chủ
+    res.redirect('/login'); // nếu chưa đăng nhâp điều hướng quay lại trang chủ
 }

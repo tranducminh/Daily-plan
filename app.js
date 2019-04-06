@@ -10,6 +10,7 @@ var cookieParser = require('cookie-parser');
 var dbConfig = require("./config/dbConnection.js");
 var passportConfig = require("./config/passport.js");
 
+
 var setupController = require("./api/controller/setupController.js");
 var userController = require("./api/controller/userController.js");
 
@@ -28,11 +29,11 @@ app.use(morgan("dev"));
 app.set("view engine", "ejs");
 app.use(session({ 
     secret: '1234567890',
-    // cookie: {
-    //     maxAge: 1000 * 5 //thời gian cookie còn hiệu lực mili giây
-    // }
-    // saveUninitialized: true,
-    // resave: true 
+    cookie: {
+        expires: 365*24*60*60*1000 //thời gian cookie còn hiệu lực mili giây
+    },
+    saveUninitialized: true,
+    resave: false 
 }));
 app.use(passport.initialize()); //Khởi tạo passport-local
 app.use(passport.session());

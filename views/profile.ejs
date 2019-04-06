@@ -1,19 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./assets/CSS/profile.css">
+
     <title>Profile</title>
 </head>
+
 <body>
-    <strong>ID</strong>: <%= user.google.id %></br>
-    <strong>Name</strong>: <%= user.google.displayname %></br>
-    <strong>username</strong>: <%= user.local.username %></br>
-    <strong>password</strong>: <%= user.local.password %></br>
-    <strong>email</strong>: <%= user.facebook.email %></br>
-    <strong>locale</strong>: <%= user.google.locale %></br>
-    <img src= <%= user.google.photoURL %> alt="avatar">
+    <div id="container">
+        <div id="header">
+            <div id="menu">
+                <div id="profile" class="box">
+                    <img class="img-small" src=<%= user.local.photoURL %> alt="avatar">
+                    <div class="font font--small font--bold">
+                        <%= user.local.fullname %>
+                    </div>
+                </div>
+                <div class="box">
+                    <i class="fas fa-briefcase icon"></i>
+                    <div class="font font--small font--bold">Work</div>
+                </div>
+                <div class="box">
+                    <i class="fas fa-briefcase icon"></i>
+                    <div class="font font--small font--bold">My day</div>
+                </div>
+                <div class="box">
+                    <i class="fas fa-briefcase icon"></i>
+                    <div class="font font--small font--bold">My team</div>
+                </div>
+            </div><!--END_MENU-->
+            <div id="information">
+                <div id="time" class="font font--big font--white">
+                    <%= dateChange.acronymDate[time.getDate()]%>,
+                    <%= time.getDay() %>
+                    <%= dateChange.acronymMonth[time.getMonth()]%>
+                    <%= time.getFullYear() %>
+                </div>
+            </div>
+        </div>
+        <!--END_HEADER-->
+        <div id="content">
+            
+        </div>
+        <!--END_CONTENT-->
+        <div id="footer"></div>
+        <!--END_FOOTER-->
+    </div>
+    <!--END_CONTAINER-->
 
 </body>
+
 </html>

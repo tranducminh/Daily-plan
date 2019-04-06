@@ -6,6 +6,7 @@ var GoogleStrategy = require('passport-google-oauth20').Strategy;
 var User = require('../api/models/userModel.js');
 var configAuth = require('./config.json');
 
+
 module.exports = function (passport) {
 
     passport.serializeUser(function (user, done) {

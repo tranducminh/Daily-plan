@@ -7,7 +7,11 @@ let userSchema = new Schema({
         fullname: String,
         email: String,
         username: String,
-        password: String
+        password: String,
+        photoURL:{
+            type: String
+        },
+        locale: String
 
     },
     facebook: {
@@ -19,7 +23,10 @@ let userSchema = new Schema({
         lastname: String,
         fullname: String,
         middlename: String,
-        photoURL: String,
+        photoURL: {
+            type: String,
+            //default: "",
+        }
     },
     google: {
         id: String,
