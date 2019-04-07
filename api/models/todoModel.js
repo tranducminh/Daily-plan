@@ -1,7 +1,7 @@
 let mongoose = require("mongoose");
 let Schema = mongoose.Schema;
 
-let todoSchema = new Schema({
+var todoSchema = new Schema({
     userID: String,
     year: String,
     month: String,
@@ -11,6 +11,6 @@ let todoSchema = new Schema({
     isDone: Boolean
 })
 
-let todos = mongoose.model("todo", todoSchema);     //lưu schema vào database
+var Todos = mongoose.model("todo", todoSchema);     //lưu schema vào database
 
-module.exports = todos;
+module.exports = Todos;

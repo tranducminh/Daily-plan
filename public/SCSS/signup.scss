@@ -11,6 +11,7 @@ body {
     margin: 0em;
     padding: 0em;
     font-family: sans-serif;
+    
 }
 
 a {
@@ -80,9 +81,12 @@ $header-height: 2em;
         right: 1em;
 
         & .bar {
-            font-size: $header-height;
-            color: #fff;
+            overflow: auto;
             cursor: pointer;
+            & .bar-icon{
+                height: 1.5em;
+                width: 1.5em;
+            }
         }
 
         & #menu-options {
@@ -259,8 +263,26 @@ $header-height: 2em;
 
 .icon {
     cursor: pointer;
-    font-size: 2em;
-    margin: 0em 0.5em;
+    width: 1.5em;
+    height: 1.5em;
+    margin: 0.5em 2em;
+}
+#login-with-facebook {
+    &:hover {
+        box-shadow: 0 0 1em #4c6ef5;
+    }
+}
+
+#login-with-google {
+    &:hover {
+        box-shadow: 0 0 1em #f5654c;
+    }
+}
+
+#login-with-instagram {
+    &:hover {
+        box-shadow: 0 0 1em #be4bdb
+    }
 }
 
 @media screen and (min-width: 700px) {

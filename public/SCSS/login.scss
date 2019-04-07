@@ -16,6 +16,7 @@ body {
 a {
     display: block;
     text-decoration: none;
+    overflow: auto;
 }
 
 
@@ -68,9 +69,12 @@ $header-height: 2em;
         top: 1em;
         right: 1em;
         & .bar {
-            font-size: $header-height;
-            color: #fff;
+            overflow: auto;
             cursor: pointer;
+            & .bar-icon{
+                height: 1.5em;
+                width: 1.5em;
+            }
         }
         & #menu-options {
             display: none;
@@ -166,25 +170,26 @@ $header-height: 2em;
 
 .icon {
     cursor: pointer;
-    font-size: 2em;
-    margin: 0em 0.5em;
+    width: 1.5em;
+    height: 1.5em;
+    margin: 0em 1em;
 }
 
 #login-with-facebook {
     &:hover {
-        color: #4c6ef5;
+        box-shadow: 0 0 1em #4c6ef5;
     }
 }
 
 #login-with-google {
     &:hover {
-        color: #f5654c;
+        box-shadow: 0 0 1em #f5654c;
     }
 }
 
 #login-with-instagram {
     &:hover {
-        color: #be4bdb
+        box-shadow: 0 0 1em #be4bdb
     }
 }
 
@@ -235,11 +240,6 @@ $header-height: 2em;
         &:hover {
             border: 0.15em solid cornflowerblue;
         }
-    }
-    .icon {
-        cursor: pointer;
-        font-size: 2.5em;
-        margin: 0em 0.5em;
     }
 }
 

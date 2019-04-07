@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app.todos">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
     <link rel="stylesheet" href="./assets/CSS/profile.css">
 
     <title>Profile</title>
 </head>
 
-<body>
+<body ng-controller="todoController">
     <div id="container">
         <div id="header">
             <div id="menu">
+                <div id="exit-icon">
+                    <img class="exit-icon" src="./assets/icons/exit.png" alt="menu-icon">
+                </div>
                 <div id="profile" class="box">
                     <img class="img-small" src=<%= user.local.photoURL %> alt="avatar">
                     <div class="font font--small font--bold">
@@ -35,11 +36,18 @@
                     <i class="fas fa-briefcase icon"></i>
                     <div class="font font--small font--bold">My team</div>
                 </div>
-            </div><!--END_MENU-->
+            </div>
+            <!--END_MENU-->
             <div id="information">
+                <div id="search">
+                    <div id="menu-icon">
+                        <img class="menu-icon" src="./assets/icons/menu.png" alt="menu-icon">
+                    </div>
+                    <input class="font--small" type="text" placeholder="Search">
+                </div>
                 <div id="time" class="font font--big font--white">
-                    <%= dateChange.acronymDate[time.getDate()]%>,
-                    <%= time.getDay() %>
+                    <%= dateChange.acronymDate[time.getDay()]%>,
+                    <%= time.getDate() %>
                     <%= dateChange.acronymMonth[time.getMonth()]%>
                     <%= time.getFullYear() %>
                 </div>
@@ -47,14 +55,22 @@
         </div>
         <!--END_HEADER-->
         <div id="content">
-            
+            <div id="todo-container">
+                <div class="todo" ng-repeat="todo in todos">
+                    <input type="checkbox" ng-model="todo.isDone">
+                    <span ng-class="{strike: todo.isDone}" class="todo-text font--bold">{{ todo.text }}</span>
+                </div>
+            </div>
+
         </div>
         <!--END_CONTENT-->
         <div id="footer"></div>
         <!--END_FOOTER-->
     </div>
     <!--END_CONTAINER-->
-
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script src="./assets/JS/main/app.js"></script>
+    <script src="./assets/JS/profile.js"></script>
 </body>
 
 </html>

@@ -8,7 +8,8 @@ html, body {
 *::before {
   margin: 0em;
   padding: 0em;
-  font-family: sans-serif; }
+  font-family: sans-serif;
+  box-sizing: border-box; }
 
 a {
   display: block;
@@ -28,7 +29,16 @@ a {
       display: none;
       flex-direction: column;
       width: 65%;
-      box-shadow: 0 0 1em gray; }
+      box-shadow: 0 0 1em gray;
+      transition: 2s; }
+      #container #header #menu #exit-icon {
+        cursor: pointer;
+        position: absolute;
+        right: 5%;
+        top: 5%; }
+        #container #header #menu #exit-icon .exit-icon {
+          width: 1.5em;
+          height: 1.5em; }
       #container #header #menu .box {
         padding: 1em;
         display: flex;
@@ -38,6 +48,8 @@ a {
           cursor: pointer; }
         #container #header #menu .box#profile {
           background-color: aquamarine; }
+      #container #header #menu.appear {
+        display: flex; }
     #container #header #information {
       position: relative;
       background-image: url("../images/cover.jpg");
@@ -47,15 +59,47 @@ a {
       background-color: aqua;
       width: 100%;
       height: 100%; }
+      #container #header #information #search {
+        position: relative;
+        margin: 0 auto;
+        padding: 0.5em;
+        width: 90%;
+        height: 25%; }
+        #container #header #information #search #menu-icon {
+          cursor: pointer;
+          position: absolute;
+          top: 32%;
+          left: 6%; }
+          #container #header #information #search #menu-icon .menu-icon {
+            height: 1.2em;
+            width: 1.2em; }
+        #container #header #information #search input {
+          width: 100%;
+          height: 100%;
+          border-radius: 0.5em;
+          padding: 0.5em 1em 0.5em 2.5em; }
       #container #header #information #time {
         position: absolute;
         bottom: 0;
         padding: 1em; }
   #container #content {
+    width: 100%;
+    overflow: auto;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: flex-start; }
+    #container #content #todo-container {
+      position: relative;
+      overflow: auto;
+      width: 100%;
+      padding: 2em; }
+      #container #content #todo-container .todo {
+        display: flex;
+        align-items: center;
+        padding: 0.5em; }
+        #container #content #todo-container .todo .todo-text {
+          padding: 0.5em; }
 
 .img-small {
   border-radius: 9999em;
@@ -63,6 +107,7 @@ a {
   width: 2em; }
 
 .font {
+  font-size: 1em;
   padding: 0.1em 0.4em; }
 
 .font--bold {
@@ -76,6 +121,9 @@ a {
 
 .font--white {
   color: #fff; }
+
+.strike {
+  text-decoration: line-through; }
 
 .icon {
   padding: 0 1em; }

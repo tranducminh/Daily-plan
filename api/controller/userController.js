@@ -1,5 +1,4 @@
 let users = require("../models/userModel.js");
-var dateChange = require("./date.json");
 
 module.exports = function (app, passport) {
     app.get("/api/users", function (req, res) {
@@ -16,20 +15,6 @@ module.exports = function (app, passport) {
      * Trang đăng nhập
      */
     app.get("/login", function (req, res) {
-        // let userLogin = {
-        //     username: "tienton",
-        //     password: "123456789"
-        // }
-        // users.findOne({username: "tientoan"}, function (err, user) {
-        //     let ps = user.password;
-        //     console.log(ps);
-        //     if(ps == "12345678"){
-        //         res.render("profile");
-        //     }
-        //     else{
-        //         res.render("login");
-        //     }
-        // })
         res.render("login.ejs", {
             // title: "Đăng nhập thành viên",
             // error: req.flash('Error'),
@@ -88,19 +73,7 @@ module.exports = function (app, passport) {
     );
 
 
-    /**
-     * Thông tin user
-     */
-    app.get('/profile', isLoggedIn, function (req, res) {
-        let time = new Date();
-        res.render('profile.ejs', {
-            user: req.user, // truyền đối tượng user cho profile.ejs để hiển thị lên view
-            time: time,
-            date: dateChange.Date[time.getDate()],
-            month: dateChange.Date[time.getMonth()],
-            dateChange: dateChange
-        });
-    });
+    
 
     /**
      * Đăng xuất
@@ -112,14 +85,3 @@ module.exports = function (app, passport) {
 
 }
 
-/**
- * kiểm tra đăng nhập hay chưa
- * @param {*} req 
- * @param {*} res 
- * @param {*} next 
- */
-function isLoggedIn(req, res, next) {
-    if (req.isAuthenticated())
-        return next();
-    res.redirect('/login'); // nếu chưa đăng nhâp điều hướng quay lại trang chủ
-}

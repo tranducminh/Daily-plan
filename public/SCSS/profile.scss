@@ -10,6 +10,7 @@ html, body{
     margin: 0em;
     padding: 0em;
     font-family: sans-serif;
+    box-sizing: border-box;
 }
 
 a{
@@ -32,6 +33,17 @@ a{
             flex-direction: column;
             width: 65%;
             box-shadow: 0 0 1em gray;
+            transition: 2s;
+            & #exit-icon{
+                cursor: pointer;
+                position: absolute;
+                right: 5%;
+                top: 5%;
+                & .exit-icon{
+                    width: 1.5em;
+                    height: 1.5em;
+                }
+            }
             & .box{
                 padding: 1em;
                 display: flex;
@@ -44,6 +56,9 @@ a{
                     background-color: aquamarine;
                 }
             }
+            &.appear{
+                display: flex;
+            }
         }//END_MENU
 
         & #information{
@@ -55,6 +70,29 @@ a{
             background-color: aqua;
             width: 100%;
             height: 100%;
+            & #search{
+                position: relative;
+                margin: 0 auto;
+                padding: 0.5em;
+                width: 90%;
+                height: 25%;
+                & #menu-icon{
+                    cursor: pointer;
+                    position: absolute;
+                    top: 32%;
+                    left: 6%;
+                    & .menu-icon{
+                        height: 1.2em;
+                        width: 1.2em;
+                    }
+                }
+                & input{
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 0.5em;
+                    padding: 0.5em 1em 0.5em 2.5em;
+                }
+            }
             & #time{
                 position: absolute;
                 bottom: 0;
@@ -64,10 +102,26 @@ a{
     }//END_HEADER
 
     & #content{
+        width: 100%;
+        overflow: auto;
         position: relative;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        & #todo-container{
+            position: relative;
+            overflow: auto;
+            width: 100%;
+            padding: 2em;
+            & .todo{
+                display: flex;
+                align-items: center;
+                padding: 0.5em;
+                & .todo-text{
+                    padding: 0.5em;
+                }
+            }
+        }
     }//END_CONTENT
 
     & #footer{
@@ -82,6 +136,7 @@ a{
     width: 2em;
 }
 .font {
+    font-size: 1em;
     padding: 0.1em 0.4em;
 }
 .font--bold{
@@ -95,6 +150,9 @@ a{
 }
 .font--white{
     color: #fff;
+}
+.strike{
+    text-decoration: line-through;
 }
 .icon{
     padding: 0 1em;

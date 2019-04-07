@@ -13,7 +13,8 @@ var passportConfig = require("./config/passport.js");
 
 var setupController = require("./api/controller/setupController.js");
 var userController = require("./api/controller/userController.js");
-
+var profileController = require("./api/controller/profileController.js");
+var todoController = require("./api/controller/todoController.js")
 
 var app = express();
 var port = process.env.PORT || 3000;
@@ -45,6 +46,8 @@ app.use(flash());
 setupController(app);
 userController(app, passport);
 passportConfig(passport);
+profileController(app);
+todoController(app);
 
 //database connection
 mongoose.connect(dbConfig.getDbConnectionString());
