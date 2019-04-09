@@ -4,7 +4,7 @@ app.controller("todoController", ['$scope', function ($scope) {
     $scope.appName = "blabla";
     $scope.todos = [
         {
-            text: "Hoàn thành add",
+            text: "Hoàn thành add blblblbllblbblablalablablab ",
             isDone: true
         },
         {

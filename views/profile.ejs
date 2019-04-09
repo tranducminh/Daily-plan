@@ -16,7 +16,7 @@
         <div id="header">
             <div id="menu">
                 <div id="exit-icon">
-                    <img class="exit-icon" src="./assets/icons/exit.png" alt="menu-icon">
+                    <img class="icon" src="./assets/icons/close.png" alt="close-icon">
                 </div>
                 <div id="profile" class="box">
                     <img class="img-small" src=<%= user.local.photoURL %> alt="avatar">
@@ -25,15 +25,15 @@
                     </div>
                 </div>
                 <div class="box">
-                    <i class="fas fa-briefcase icon"></i>
+                    <i class="fas fa-briefcase"></i>
                     <div class="font font--small font--bold">Work</div>
                 </div>
                 <div class="box">
-                    <i class="fas fa-briefcase icon"></i>
+                    <i class="fas fa-briefcase"></i>
                     <div class="font font--small font--bold">My day</div>
                 </div>
                 <div class="box">
-                    <i class="fas fa-briefcase icon"></i>
+                    <i class="fas fa-briefcase"></i>
                     <div class="font font--small font--bold">My team</div>
                 </div>
             </div>
@@ -41,15 +41,15 @@
             <div id="information">
                 <div id="search">
                     <div id="menu-icon">
-                        <img class="menu-icon" src="./assets/icons/menu.png" alt="menu-icon">
+                        <img class="icon" src="./assets/icons/menu.png" alt="menu-icon">
                     </div>
-                    <input class="font--small" type="text" placeholder="Search">
+                    <input class="font" type="text" placeholder="Search">
                 </div>
-                <div id="time" class="font font--big font--white">
-                    <%= dateChange.acronymDate[time.getDay()]%>,
-                    <%= time.getDate() %>
-                    <%= dateChange.acronymMonth[time.getMonth()]%>
-                    <%= time.getFullYear() %>
+                <div id="time_now" class="font font--big font--white">
+                    <%= dateChange.acronymDate[time_now.getDay()]%>,
+                    <%= time_now.getDate() %>
+                    <%= dateChange.acronymMonth[time_now.getMonth()]%>
+                    <%= time_now.getFullYear() %>
                 </div>
             </div>
         </div>
@@ -57,17 +57,105 @@
         <div id="content">
             <div id="todo-container">
                 <div class="todo" ng-repeat="todo in todos">
-                    <input type="checkbox" ng-model="todo.isDone">
-                    <span ng-class="{strike: todo.isDone}" class="todo-text font--bold">{{ todo.text }}</span>
+                    <input class="tick" type="checkbox" name="check" ng-model="todo.isDone">
+                    <span ng-class="{strike: todo.isDone}"
+                        class="todo-text font--bold font--small tick">{{ todo.text }}</span>
                 </div>
             </div>
-
+            <div id="options-container">
+                <div id="options">
+                    <div id="add-todo" class="option">
+                        <img class="icon icon--toobig" src="./assets/icons/add.png" alt="add-icon">
+                        <span class="font font--bold font--small">Add</span>
+                    </div>
+                    <div id="update-todo" class="option">
+                        <img class="icon icon--toobig" src="./assets/icons/update.png" alt="update-icon">
+                        <span class="font font--bold font--small">Update</span>
+                    </div>
+                    <div id="delete-todo" class="option">
+                        <img class="icon icon--toobig" src="./assets/icons/delete.png" alt="delete-icon">
+                        <span class="font font--bold font--small">Delete</span>
+                    </div>
+                </div>
+            </div>
         </div>
         <!--END_CONTENT-->
+
         <div id="footer"></div>
         <!--END_FOOTER-->
     </div>
     <!--END_CONTAINER-->
+    <div id="action-container">
+        <div id="add_todo" class="action_todo">
+            <div id="time">
+                <div class="time-choice">
+                    <input type="radio" name="time-choice" value="today">
+                    <span class="font font--bold">Today</span>
+                </div>
+                <div class="time-choice">
+                    <input type="radio" name="time-choice" value="tomorrow" checked>
+                    <span class="font font--bold">Tomorrow</span>
+                </div>
+                <div class="time-choice">
+                    <input type="radio" name="time-choice" value="daily">
+                    <span class="font font--bold">Daily</span>
+                </div>
+                <div class="time-choice">
+                    <input type="radio" name="time-choice" value="option">
+                    <span class="font font--bold">Option</span>
+                </div>
+                <div id="time-option">
+                    <select size="2" id="day" title="Ngày" name="day" class="font--bold">
+                        <option value="1">1</option>
+                        <option value="1">1</option>
+                        <option value="1">1</option>
+
+                    </select>
+                    <select size="2" name="month" id="month" title="Tháng" class="font--bold">
+                        <option value="1">1</option>
+                        <option value="1">1</option>
+                        <option value="1">1</option>
+                    </select>
+                    <select size="2" id="year" name="year" title="Năm" style="width: 2.7em" class="font--bold">
+                        <option value="2019">2019</option>
+                        <option value="2019">2019</option>
+                        <option value="2019">2019</option>
+                        <option value="2019">2019</option>
+                    </select>
+                </div>
+            </div>
+            <!--end-time-->
+            <div id="add-form">
+                <form action="" method="POST">
+                    <input type="text" name="add-content" id="add-content" class="font--small">
+                    <div id="add-btn" class="btn font--small font--bold font--white">Add</div>
+                </form>
+
+            </div>
+            <div id="close-add-form">
+                <img class="icon" src="./assets/icons/close.png" alt="close-icon">
+            </div>
+        </div>
+        <!--END_ADD_TODO-->
+
+        <div id="delete_todo" class="action_todo">
+            <div class="todo" ng-repeat="todo in todos">
+                <input type="checkbox" class = "remove" name="check" ng-model="todo.isDone">
+                <span ng-class="{strike: todo.isDone}" class="todo-text font--bold font--small remove">{{ todo.text }}</span>
+            </div>
+
+            <div id="delete-form">
+                <form action="" method="POST">
+                    <div id="add-btn" class="btn btn--red font--small font--bold font--white">Delete</div>
+                </form>
+
+            </div>
+
+            <div id="close-delete-form">
+                <img class="icon" src="./assets/icons/close.png" alt="close-icon">
+            </div>
+        </div>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
     <script src="./assets/JS/main/app.js"></script>
     <script src="./assets/JS/profile.js"></script>

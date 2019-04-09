@@ -5,11 +5,11 @@ module.exports = function (app) {
      * Thông tin user
      */
     app.get('/profile', isLoggedIn, function (req, res) {
-        let time = new Date();
+        let time_now = new Date();
         
         res.render('profile.ejs', {
             user: req.user, // truyền đối tượng user cho profile.ejs để hiển thị lên view
-            time: time,
+            time_now: time_now,
             dateChange: dateChange
         });
     });
