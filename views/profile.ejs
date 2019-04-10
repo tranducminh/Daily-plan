@@ -68,9 +68,9 @@
                         <img class="icon icon--toobig" src="./assets/icons/add.png" alt="add-icon">
                         <span class="font font--bold font--small">Add</span>
                     </div>
-                    <div id="update-todo" class="option">
-                        <img class="icon icon--toobig" src="./assets/icons/update.png" alt="update-icon">
-                        <span class="font font--bold font--small">Update</span>
+                    <div id="edit-todo" class="option">
+                        <img class="icon icon--toobig" src="./assets/icons/edit.png" alt="update-icon">
+                        <span class="font font--bold font--small">Edit</span>
                     </div>
                     <div id="delete-todo" class="option">
                         <img class="icon icon--toobig" src="./assets/icons/delete.png" alt="delete-icon">
@@ -154,7 +154,26 @@
             <div id="close-delete-form">
                 <img class="icon" src="./assets/icons/close.png" alt="close-icon">
             </div>
-        </div>
+        </div><!--END-DELETE_TODO-->
+
+        <div id="edit_todo" class="action_todo">
+            <div class="todo" ng-repeat="todo in todos">
+                <input type="checkbox" class = "tick" name="check" ng-model="todo.isDone">
+                <!-- <span ng-class="{strike: todo.isDone}" class="todo-text font--bold font--small remove">{{ todo.text }}</span> -->
+                <input class="todo-text font--bold font--small" type="text" value="{{ todo.text }}">
+            </div>
+
+            <div id="edit-form">
+                <form action="" method="POST">
+                    <div id="edit-btn" class="btn btn--green font--small font--bold font--white">Edit</div>
+                </form>
+
+            </div>
+
+            <div id="close-edit-form">
+                <img class="icon" src="./assets/icons/close.png" alt="close-icon">
+            </div>
+        </div><!--END-DELETE_TODO-->
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
     <script src="./assets/JS/main/app.js"></script>

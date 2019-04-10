@@ -4,6 +4,9 @@ html, body { width: 100%; height: 100%; box-sizing: border-box; }
 
 a { display: block; text-decoration: none; }
 
+input { outline: none; }
+input:focus { box-shadow: 0 0 1em #3266dc; }
+
 #container { position: absolute; width: 100%; height: 100%; }
 #container #header { position: relative; widows: 100%; height: 30%; box-shadow: 0 0 1em darkgray; border-bottom: 0.1em solid darkgray; }
 #container #header #menu { position: absolute; z-index: 300; background-color: #fff; display: none; flex-direction: column; width: 65%; box-shadow: 0 0 1em gray; transition: 2s; }
@@ -38,11 +41,17 @@ a { display: block; text-decoration: none; }
 #action-container #add_todo #add-form form input { height: 2.5em; width: 16em; margin: 1em 0; padding: 0em 1em; border-radius: 0.5em; outline: none; }
 #action-container #add_todo #add-form form input:focus { box-shadow: 0 0 1em #3266dc; }
 #action-container #add_todo #close-add-form { position: absolute; top: 0; right: 0; padding: 1em; }
-#action-container #delete_todo { padding-top: 2em; display: block; max-height: 28em; }
+#action-container #delete_todo { padding-top: 2em; display: none; max-height: 28em; }
 #action-container #delete_todo .todo { display: flex; justify-content: flex-start; align-items: center; padding: 0.1em 0.5em; }
 #action-container #delete_todo .todo .todo-text { padding: 0.5em; width: 12em; }
 #action-container #delete_todo #delete-form { display: flex; justify-content: center; }
 #action-container #delete_todo #close-delete-form { top: 0; right: 0; position: absolute; padding: 1em; }
+#action-container #edit_todo { padding-top: 2em; display: block; max-height: 28em; }
+#action-container #edit_todo .todo { display: flex; justify-content: flex-start; align-items: center; padding: 0.1em 0.5em; }
+#action-container #edit_todo .todo input { border-radius: 0.5em; margin: 0.5em; }
+#action-container #edit_todo .todo .todo-text { padding: 0.5em; width: 12em; }
+#action-container #edit_todo #edit-form { display: flex; justify-content: center; }
+#action-container #edit_todo #close-edit-form { top: 0; right: 0; position: absolute; padding: 1em; }
 
 .img-small { border-radius: 9999em; height: 2em; width: 2em; }
 
@@ -60,9 +69,11 @@ a { display: block; text-decoration: none; }
 .strike.tick { color: #32dc50; }
 .strike.remove { color: red; }
 
-.btn { display: flex; justify-content: center; align-items: center; width: 5em; background-color: #3266dc; border: 0.1em solid #fff; border-radius: 0.5em; padding: 0.8em 0em; overflow: auto; }
+.btn { display: flex; justify-content: center; align-items: center; width: 4.5em; background-color: #3266dc; border: 0.1em solid #fff; border-radius: 0.5em; padding: 0.6em 0em; margin: 0.5em 0; overflow: auto; }
 
 .btn--red { background-color: red; }
+
+.btn--green { background-color: #32dc50; }
 
 input[type="radio"], input[type="checkbox"] { position: relative; width: 2.2em; height: 2.2em; margin: 0 0.5em; border: 0.3em solid #000; box-sizing: border-box; border-radius: 0.2em; -webkit-appearance: none; outline: none; }
 input[type="radio"].tick:checked, input[type="checkbox"].tick:checked { border: 0.3em solid #32dc50; }
