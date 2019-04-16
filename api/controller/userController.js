@@ -1,16 +1,42 @@
+
+
 let users = require("../models/userModel.js");
+let Todos = require("../models/todoModel.js");
 
 module.exports = function (app, passport) {
-    app.get("/api/users", function (req, res) {
-        users.find(function (err, data) {
+
+
+    app.get("/api/todos", function (req, res) {
+        Todos.find(function (err, data) {
             if (err) {
 
             } else {
                 res.json(data);
             }
-        })
+        });
     });
 
+
+    app.post("/todo", function (req, res) {
+        var newTodoSchema = {
+            userID: req.body.userID,
+            year: req.body.year,
+            month: req.body.month,
+            date: req.body.date,
+            text: req.body.text,
+            isDone: false
+        };
+        // console.log(req.body);
+
+        Todos.create(newTodoSchema, function (err, todo) {
+            if (err) {
+                throw err;
+            }
+            else {
+                console.log(todo);
+            }
+        })
+    })
     /**
      * Trang đăng nhập
      */
@@ -73,7 +99,7 @@ module.exports = function (app, passport) {
     );
 
 
-    
+
 
     /**
      * Đăng xuất

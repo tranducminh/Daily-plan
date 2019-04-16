@@ -18,7 +18,7 @@
                 <div id="exit-icon">
                     <img class="icon" src="./assets/icons/close.png" alt="close-icon">
                 </div>
-                <div id="profile" class="box">
+                <div userID = "<%= user._id %>" id="profile" class="box">
                     <img class="img-small" src=<%= user.local.photoURL %> alt="avatar">
                     <div class="font font--small font--bold">
                         <%= user.local.fullname %>
@@ -64,15 +64,15 @@
             </div>
             <div id="options-container">
                 <div id="options">
-                    <div id="add-todo" class="option">
+                    <div id="add_option" class="option">
                         <img class="icon icon--toobig" src="./assets/icons/add.png" alt="add-icon">
                         <span class="font font--bold font--small">Add</span>
                     </div>
-                    <div id="edit-todo" class="option">
+                    <div id="edit_option" class="option">
                         <img class="icon icon--toobig" src="./assets/icons/edit.png" alt="update-icon">
                         <span class="font font--bold font--small">Edit</span>
                     </div>
-                    <div id="delete-todo" class="option">
+                    <div id="delete_option" class="option">
                         <img class="icon icon--toobig" src="./assets/icons/delete.png" alt="delete-icon">
                         <span class="font font--bold font--small">Delete</span>
                     </div>
@@ -89,46 +89,40 @@
         <div id="add_todo" class="action_todo">
             <div id="time">
                 <div class="time-choice">
-                    <input type="radio" name="time-choice" value="today">
+                    <input id="today" ng-model = "timeChoice.option" type="radio" name="time-choice" value="today" class="tick">
                     <span class="font font--bold">Today</span>
                 </div>
                 <div class="time-choice">
-                    <input type="radio" name="time-choice" value="tomorrow" checked>
+                    <input id="tomorrow" ng-model = "timeChoice.option" type="radio" name="time-choice" value="tomorrow" checked class="tick">
                     <span class="font font--bold">Tomorrow</span>
                 </div>
                 <div class="time-choice">
-                    <input type="radio" name="time-choice" value="daily">
+                    <input id="daily" ng-model = "timeChoice.option" type="radio" name="time-choice" value="daily" class="tick">
                     <span class="font font--bold">Daily</span>
                 </div>
                 <div class="time-choice">
-                    <input type="radio" name="time-choice" value="option">
+                    <input id="time_free" ng-model = "timeChoice.option" type="radio" name="time-choice" value="option" class="tick">
                     <span class="font font--bold">Option</span>
                 </div>
                 <div id="time-option">
-                    <select size="2" id="day" title="Ngày" name="day" class="font--bold">
-                        <option value="1">1</option>
-                        <option value="1">1</option>
-                        <option value="1">1</option>
+                    <select ng-model = "timeOption.date" size="2" id="day" title="Ngày" name="day" class="font--bold" class="tick">
+                        <option ng-repeat = "day in date.days" value="{{ day }}">{{ day }}</option>
 
                     </select>
-                    <select size="2" name="month" id="month" title="Tháng" class="font--bold">
-                        <option value="1">1</option>
-                        <option value="1">1</option>
-                        <option value="1">1</option>
+                    <select ng-model = "timeOption.month" size="2" name="month" id="month" title="Tháng" class="font--bold">
+                        <option ng-repeat = "month in date.months" value="{{ month }}">{{ month }}</option>
+                
                     </select>
-                    <select size="2" id="year" name="year" title="Năm" style="width: 2.7em" class="font--bold">
-                        <option value="2019">2019</option>
-                        <option value="2019">2019</option>
-                        <option value="2019">2019</option>
-                        <option value="2019">2019</option>
+                    <select ng-model = "timeOption.year" size="2" id="year" name="year" title="Năm" style="width: 2.7em" class="font--bold">
+                        <option  ng-repeat = "year in date.years" value="{{ year }}">{{ year }}</option>
                     </select>
                 </div>
             </div>
             <!--end-time-->
             <div id="add-form">
                 <form action="" method="POST">
-                    <input type="text" name="add-content" id="add-content" class="font--small">
-                    <div id="add-btn" class="btn font--small font--bold font--white">Add</div>
+                    <input ng-model = "newTodo.text" type="text" name="add-content" id="add-content" class="font--small">
+                    <div ng-disabled = "!newTodo.text" ng-click = "addNewTodo()" id="add-btn" class="btn font--small font--bold font--white">Add</div>
                 </form>
 
             </div>
@@ -177,6 +171,7 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
     <script src="./assets/JS/main/app.js"></script>
+    <script src="./assets/JS/main/services/svTodos.js"></script>
     <script src="./assets/JS/profile.js"></script>
 </body>
 

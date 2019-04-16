@@ -13,6 +13,7 @@ module.exports = function (app) {
             dateChange: dateChange
         });
     });
+
 }
 /**
  * kiểm tra đăng nhập hay chưa

@@ -23,15 +23,18 @@ input:focus { box-shadow: 0 0 1em #3266dc; }
 #container #header #information #time_now { position: absolute; bottom: 0; padding: 1em; }
 #container #content { width: 100%; overflow: auto; position: relative; display: flex; flex-direction: column; align-items: flex-start; }
 #container #content #todo-container { position: relative; overflow: auto; width: 100%; padding: 1em; }
+#container #content #todo-container.disappear { display: none; }
 #container #content #todo-container .todo { display: flex; justify-content: flex-start; align-items: center; padding: 0.5em; }
 #container #content #todo-container .todo .todo-text { padding: 0.5em; width: 12em; }
 #container #content #options-container { position: fixed; width: 100%; height: 3em; bottom: 0; box-shadow: 0 0 2em darkgray; border-top: 0.1em solid darkgray; }
 #container #content #options-container #options { width: 100%; height: 100%; display: flex; justify-content: space-around; align-items: center; }
 #container #content #options-container #options .option { position: relative; display: flex; align-items: center; justify-content: space-between; cursor: pointer; }
 
-#action-container { position: absolute; display: block; width: 100%; height: 100%; overflow: auto; background-color: rgba(255, 255, 255, 0.8); }
+#action-container { position: absolute; display: none; width: 100%; height: 100%; overflow: auto; background-color: rgba(255, 255, 255, 0.8); }
+#action-container.appear { display: block; }
 #action-container .action_todo { position: absolute; box-sizing: border-box; width: 20em; height: auto; overflow: auto; background-color: #eeeeee; box-shadow: 0 0 1em gray; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 0.8em; }
 #action-container #add_todo { display: none; }
+#action-container #add_todo.appear { display: block; }
 #action-container #add_todo #time { display: flex; flex-direction: column; padding: 1em; }
 #action-container #add_todo #time .time-choice { position: relative; padding: 0.5em; display: flex; align-items: center; }
 #action-container #add_todo #time #time-option { margin: 0 auto; }
@@ -42,11 +45,13 @@ input:focus { box-shadow: 0 0 1em #3266dc; }
 #action-container #add_todo #add-form form input:focus { box-shadow: 0 0 1em #3266dc; }
 #action-container #add_todo #close-add-form { position: absolute; top: 0; right: 0; padding: 1em; }
 #action-container #delete_todo { padding-top: 2em; display: none; max-height: 28em; }
+#action-container #delete_todo.appear { display: block; }
 #action-container #delete_todo .todo { display: flex; justify-content: flex-start; align-items: center; padding: 0.1em 0.5em; }
 #action-container #delete_todo .todo .todo-text { padding: 0.5em; width: 12em; }
 #action-container #delete_todo #delete-form { display: flex; justify-content: center; }
 #action-container #delete_todo #close-delete-form { top: 0; right: 0; position: absolute; padding: 1em; }
-#action-container #edit_todo { padding-top: 2em; display: block; max-height: 28em; }
+#action-container #edit_todo { padding-top: 2em; display: none; max-height: 28em; }
+#action-container #edit_todo.appear { display: block; }
 #action-container #edit_todo .todo { display: flex; justify-content: flex-start; align-items: center; padding: 0.1em 0.5em; }
 #action-container #edit_todo .todo input { border-radius: 0.5em; margin: 0.5em; }
 #action-container #edit_todo .todo .todo-text { padding: 0.5em; width: 12em; }

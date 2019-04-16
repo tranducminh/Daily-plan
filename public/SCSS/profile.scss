@@ -119,6 +119,9 @@ input {
       overflow: auto;
       width: 100%;
       padding: 1em;
+      &.disappear{
+        display: none;
+      }
       & .todo {
         display: flex;
         justify-content: flex-start;
@@ -159,11 +162,14 @@ input {
 }
 #action-container {
   position: absolute;
-  display: block;
+  display: none;
   width: 100%;
   height: 100%;
   overflow: auto;
   background-color: rgba(255, 255, 255, 0.8);
+  &.appear{
+    display: block;
+  }
   & .action_todo {
     position: absolute;
     box-sizing: border-box;
@@ -179,6 +185,9 @@ input {
   }
   & #add_todo {
     display: none;
+    &.appear{
+      display: block;
+    }
     & #time {
       display: flex;
 
@@ -236,6 +245,9 @@ input {
     padding-top: 2em;
     display: none;
     max-height: 28em;
+    &.appear{
+      display: block;
+    }
     & .todo {
       display: flex;
       justify-content: flex-start;
@@ -260,8 +272,11 @@ input {
 
   & #edit_todo {
     padding-top: 2em;
-    display: block;
+    display: none;
     max-height: 28em;
+    &.appear{
+      display: block;
+    }
     & .todo {
       display: flex;
       justify-content: flex-start;

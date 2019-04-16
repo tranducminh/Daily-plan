@@ -50,12 +50,12 @@ profileController(app);
 todoController(app);
 
 //database connection
-mongoose.connect(dbConfig.getDbConnectionString());
+mongoose.connect(dbConfig.getDbConnectionString(), {useNewUrlParser : true});
 
 //Trang chủ
 app.get("/", function(req, res){
     
-    res.send("successful");
+    res.render("login.ejs");
 });
 
 
