@@ -31,8 +31,8 @@ input {
   height: 100%;
   & #header {
     position: relative;
-    widows: 100%;
-    height: 30%;
+    width: 100%;
+    height: 35%;
     box-shadow: 0 0 1em darkgray;
     border-bottom: 0.1em solid darkgray;
     & #menu {
@@ -59,7 +59,7 @@ input {
           cursor: pointer;
         }
         &#profile {
-          background-color: aquamarine;
+          background-color: darkgray;
         }
       }
       &.appear {
@@ -81,12 +81,12 @@ input {
         margin: 0 auto;
         padding: 0.5em;
         width: 95%;
-        height: 30%;
+        height: 4em;
         & #menu-icon {
           cursor: pointer;
           position: absolute;
-          top: 35%;
-          left: 7%;
+          top: 1em;
+          left: 0.5em;
         }
         & input {
           width: 100%;
@@ -102,7 +102,17 @@ input {
       & #time_now {
         position: absolute;
         bottom: 0;
-        padding: 1em;
+        padding: 0.7em;
+        display: flex;
+        justify-content: flex-start;
+        & .date_box{
+          background-color: #fff;
+          border: 0.1em solid #000;
+          border-radius: 0.5em;
+          overflow: auto;
+          padding: 0.3em;
+          margin-right: 0.2em;
+        }
       }
     }
   } //END_HEADER
@@ -134,13 +144,15 @@ input {
       } //end-todo
     } //end-todos-container
     & #options-container {
+      z-index: 100;
       position: fixed;
       width: 100%;
-      height: 3em;
+      height: 2.5em;
       bottom: 0;
       box-shadow: 0 0 2em darkgray;
       border-top: 0.1em solid darkgray;
       & #options {
+        background-color: #fff;
         width: 100%;
         height: 100%;
         display: flex;
@@ -308,6 +320,7 @@ input {
   border-radius: 9999em;
   height: 2em;
   width: 2em;
+  margin: 0.3em;
 }
 .font {
   font-size: 1.25em;
@@ -464,6 +477,7 @@ input[type="checkbox"] {
   width: 1.2em;
   height: 1.2em;
   cursor: pointer;
+  margin: 0.4em;
 }
 .icon--big {
   width: 1.5em;

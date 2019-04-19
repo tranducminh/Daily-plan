@@ -7,11 +7,11 @@
     "facebookAuth": {
         "clientID": "",
         "clientSecret": "",
-        "callbackURL": "/auth/facebook/callback"
+        "callbackURL": ""
     },
     "googleAuth": {
         "clientID": "",
         "clientSecret": "",
-        "callbackURL": "/auth/google/callback"
+        "callbackURL": ""
     }
 }

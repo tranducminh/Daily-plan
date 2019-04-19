@@ -29,6 +29,8 @@ document.addEventListener("DOMContentLoaded", function () {
         action_container.classList.add("appear");
         todo_container.classList.add("disappear");
         add_todo.classList.add("appear");
+        edit_todo.classList.remove("appear");
+        delete_todo.classList.remove("appear");
     },
     close_add_todo.onclick = function(){
         action_container.classList.remove("appear");
@@ -41,6 +43,8 @@ document.addEventListener("DOMContentLoaded", function () {
         action_container.classList.add("appear");
         todo_container.classList.add("disappear");
         edit_todo.classList.add("appear");
+        add_todo.classList.remove("appear");
+        delete_todo.classList.remove("appear");
     },
     close_edit_todo.onclick = function(){
         action_container.classList.remove("appear");
@@ -53,6 +57,8 @@ document.addEventListener("DOMContentLoaded", function () {
         action_container.classList.add("appear");
         todo_container.classList.add("disappear");
         delete_todo.classList.add("appear");
+        add_todo.classList.remove("appear");
+        edit_todo.classList.remove("appear");
     },
     close_delete_todo.onclick = function(){
         action_container.classList.remove("appear");

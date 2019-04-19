@@ -8,26 +8,27 @@ input { outline: none; }
 input:focus { box-shadow: 0 0 1em #3266dc; }
 
 #container { position: absolute; width: 100%; height: 100%; }
-#container #header { position: relative; widows: 100%; height: 30%; box-shadow: 0 0 1em darkgray; border-bottom: 0.1em solid darkgray; }
+#container #header { position: relative; width: 100%; height: 35%; box-shadow: 0 0 1em darkgray; border-bottom: 0.1em solid darkgray; }
 #container #header #menu { position: absolute; z-index: 300; background-color: #fff; display: none; flex-direction: column; width: 65%; box-shadow: 0 0 1em gray; transition: 2s; }
 #container #header #menu #exit-icon { cursor: pointer; position: absolute; right: 5%; top: 5%; }
 #container #header #menu .box { padding: 1em; display: flex; align-items: center; }
 #container #header #menu .box:hover { background-color: #eeeeee; cursor: pointer; }
-#container #header #menu .box#profile { background-color: aquamarine; }
+#container #header #menu .box#profile { background-color: darkgray; }
 #container #header #menu.appear { display: flex; }
 #container #header #information { position: relative; background-image: url("../images/cover.jpg"); background-repeat: no-repeat; background-position: center; background-size: cover; background-color: aqua; width: 100%; height: 100%; }
-#container #header #information #search { position: relative; margin: 0 auto; padding: 0.5em; width: 95%; height: 30%; }
-#container #header #information #search #menu-icon { cursor: pointer; position: absolute; top: 35%; left: 7%; }
+#container #header #information #search { position: relative; margin: 0 auto; padding: 0.5em; width: 95%; height: 4em; }
+#container #header #information #search #menu-icon { cursor: pointer; position: absolute; top: 1em; left: 0.5em; }
 #container #header #information #search input { width: 100%; height: 100%; border-radius: 0.5em; padding: 0.5em 1em 0.5em 2.5em; outline: none; }
 #container #header #information #search input:focus { box-shadow: 0 0 0.5em #3266dc; }
-#container #header #information #time_now { position: absolute; bottom: 0; padding: 1em; }
+#container #header #information #time_now { position: absolute; bottom: 0; padding: 0.7em; display: flex; justify-content: flex-start; }
+#container #header #information #time_now .date_box { background-color: #fff; border: 0.1em solid #000; border-radius: 0.5em; overflow: auto; padding: 0.3em; margin-right: 0.2em; }
 #container #content { width: 100%; overflow: auto; position: relative; display: flex; flex-direction: column; align-items: flex-start; }
 #container #content #todo-container { position: relative; overflow: auto; width: 100%; padding: 1em; }
 #container #content #todo-container.disappear { display: none; }
 #container #content #todo-container .todo { display: flex; justify-content: flex-start; align-items: center; padding: 0.5em; }
 #container #content #todo-container .todo .todo-text { padding: 0.5em; width: 12em; }
-#container #content #options-container { position: fixed; width: 100%; height: 3em; bottom: 0; box-shadow: 0 0 2em darkgray; border-top: 0.1em solid darkgray; }
-#container #content #options-container #options { width: 100%; height: 100%; display: flex; justify-content: space-around; align-items: center; }
+#container #content #options-container { z-index: 100; position: fixed; width: 100%; height: 2.5em; bottom: 0; box-shadow: 0 0 2em darkgray; border-top: 0.1em solid darkgray; }
+#container #content #options-container #options { background-color: #fff; width: 100%; height: 100%; display: flex; justify-content: space-around; align-items: center; }
 #container #content #options-container #options .option { position: relative; display: flex; align-items: center; justify-content: space-between; cursor: pointer; }
 
 #action-container { position: absolute; display: none; width: 100%; height: 100%; overflow: auto; background-color: rgba(255, 255, 255, 0.8); }
@@ -58,7 +59,7 @@ input:focus { box-shadow: 0 0 1em #3266dc; }
 #action-container #edit_todo #edit-form { display: flex; justify-content: center; }
 #action-container #edit_todo #close-edit-form { top: 0; right: 0; position: absolute; padding: 1em; }
 
-.img-small { border-radius: 9999em; height: 2em; width: 2em; }
+.img-small { border-radius: 9999em; height: 2em; width: 2em; margin: 0.3em; }
 
 .font { font-size: 1.25em; font-weight: normal; }
 
@@ -95,7 +96,7 @@ input[type="radio"].remove:checked::after, input[type="checkbox"].remove:checked
   100% { height: 0.3em; } }
 @keyframes checkboxright { 0% { width: 0em; }
   100% { width: 2em; } }
-.icon { width: 1.2em; height: 1.2em; cursor: pointer; }
+.icon { width: 1.2em; height: 1.2em; cursor: pointer; margin: 0.4em; }
 
 .icon--big { width: 1.5em; height: 1.5em; }
 

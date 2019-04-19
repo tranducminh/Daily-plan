@@ -6,16 +6,76 @@ let Todos = require("../models/todoModel.js");
 module.exports = function (app, passport) {
 
 
-    app.get("/api/todos", function (req, res) {
-        Todos.find(function (err, data) {
+    app.get("/todos", function (req, res) {
+        let userID = req.user._id;
+        Todos.find({ userID: userID }, function (err, data) {
             if (err) {
-
+                console.log("error api /todos")
             } else {
                 res.json(data);
             }
         });
     });
 
+    app.get("/todos/notDone", function (req, res) {
+        let userID = req.user._id;
+        Todos.find({ userID: userID, isDone: false }, function (err, data) {
+            if (err) {
+                console.log("error api /todos/notDone")
+            }
+            else {
+                res.json(data);
+            }
+        })
+    })
+
+
+    app.put("/todo", function (req, res) {
+        if (!req.body._id) {
+            return res.status(500).send("ID is required!");
+        }
+        else {
+            Todos.update({
+                _id: req.body._id
+            },
+                {
+                    text: req.body.text,
+                    isDone: req.body.isDone
+                },
+                function (err, todo) {
+                    if (err) {
+                        res.status(500).json(err);
+                    }
+                    else {
+
+                    }
+                }
+            )
+        }
+    })
+
+    app.put("/todos", function (req, res) {
+        let todosUpdate = req.body;
+        for (i = 0; i < todosUpdate.length; i++) {
+            Todos.update({
+                _id: todosUpdate[i]._id
+            },
+                {
+                    text: todosUpdate[i].text,
+                    isDone: todosUpdate[i].isDone
+                },
+                function (err, todo) {
+                    if (err) {
+                        res.status(500).json(err);
+                    }
+                    else {
+
+                    }
+                }
+            )
+        }
+        
+    })
 
     app.post("/todo", function (req, res) {
         var newTodoSchema = {
@@ -36,6 +96,49 @@ module.exports = function (app, passport) {
                 console.log(todo);
             }
         })
+    })
+
+    app.delete("/todos", function (req, res) {
+        let todosDelete = req.body;
+        console.log(req.body);
+        for (i = 0; i < todosDelete.length; i++) {
+            console.log(todosDelete[i].isDone);
+            if (todosDelete[i].isDone == true) {
+                Todos.remove({
+                    _id: todosDelete[i]._id
+                },
+                    function (err, todo) {
+                        if (err) {
+                            res.status(500).json(err);
+                        }
+                        else {
+
+                        }
+                    }
+                )
+            }
+
+        }
+    })
+
+    app.delete("/todo/:id", function (req, res) {
+        if(!req.params.id){
+            return res.status(500).send("ID is required")
+        }
+        else{
+            Todos.remove({
+                _id: req.params.id
+            },
+            function (err, todo) {
+                if(err){
+                    res.status(500).json(err);
+                }
+                else{
+                    res.json(todo);
+                }
+            }
+            )
+        }
     })
     /**
      * Trang đăng nhập

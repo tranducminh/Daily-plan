@@ -25,39 +25,51 @@
                     </div>
                 </div>
                 <div class="box">
-                    <i class="fas fa-briefcase"></i>
+                    <img class="icon" src="./assets/icons/mywork.png" alt="my work">
                     <div class="font font--small font--bold">Work</div>
                 </div>
                 <div class="box">
-                    <i class="fas fa-briefcase"></i>
+                    <img class="icon" src="./assets/icons/myday.png" alt="my work">
                     <div class="font font--small font--bold">My day</div>
                 </div>
                 <div class="box">
-                    <i class="fas fa-briefcase"></i>
+                    <img class="icon" src="./assets/icons/teamwork.png" alt="my work">
                     <div class="font font--small font--bold">My team</div>
                 </div>
+                <a href="/logout" class="box">
+                    
+                    <div class="font font--small font--bold">Log out</div>
+                </a>
             </div>
             <!--END_MENU-->
             <div id="information">
                 <div id="search">
                     <div id="menu-icon">
-                        <img class="icon" src="./assets/icons/menu.png" alt="menu-icon">
+                        <img class="icon--big" src="./assets/icons/menu.png" alt="menu-icon">
                     </div>
-                    <input class="font" type="text" placeholder="Search">
+                    <!-- <input class="font" type="text" placeholder="Search"> -->
                 </div>
-                <div id="time_now" class="font font--big font--white">
-                    <%= dateChange.acronymDate[time_now.getDay()]%>,
-                    <%= time_now.getDate() %>
-                    <%= dateChange.acronymMonth[time_now.getMonth()]%>
-                    <%= time_now.getFullYear() %>
+                <div id="time_now" class="font font--small font--bold" style="font-size: 1.4em">
+                    <div class="date_box">
+                        <%= dateChange.acronymDate[time_now.getDay()]%>
+                    </div>
+                    <div class="date_box">
+                        <%= time_now.getDate() %>
+                    </div>
+                    <div class="date_box">
+                        <%= dateChange.acronymMonth[time_now.getMonth()]%>
+                    </div>
+                    <div class="date_box">
+                        <%= time_now.getFullYear() %>
+                    </div>       
                 </div>
             </div>
         </div>
         <!--END_HEADER-->
         <div id="content">
             <div id="todo-container">
-                <div class="todo" ng-repeat="todo in todos">
-                    <input class="tick" type="checkbox" name="check" ng-model="todo.isDone">
+                <div class="todo"  ng-repeat="todo in todos">
+                    <input class="tick" type="checkbox" name="check" ng-model="todo.isDone" ng-change = "updateTodo(todo)">
                     <span ng-class="{strike: todo.isDone}"
                         class="todo-text font--bold font--small tick">{{ todo.text }}</span>
                 </div>
@@ -65,15 +77,15 @@
             <div id="options-container">
                 <div id="options">
                     <div id="add_option" class="option">
-                        <img class="icon icon--toobig" src="./assets/icons/add.png" alt="add-icon">
+                        <img class="icon icon--big" src="./assets/icons/add.png" alt="add-icon">
                         <span class="font font--bold font--small">Add</span>
                     </div>
                     <div id="edit_option" class="option">
-                        <img class="icon icon--toobig" src="./assets/icons/edit.png" alt="update-icon">
+                        <img class="icon icon--big" src="./assets/icons/edit.png" alt="update-icon">
                         <span class="font font--bold font--small">Edit</span>
                     </div>
                     <div id="delete_option" class="option">
-                        <img class="icon icon--toobig" src="./assets/icons/delete.png" alt="delete-icon">
+                        <img class="icon icon--big" src="./assets/icons/delete.png" alt="delete-icon">
                         <span class="font font--bold font--small">Delete</span>
                     </div>
                 </div>
@@ -127,47 +139,44 @@
 
             </div>
             <div id="close-add-form">
-                <img class="icon" src="./assets/icons/close.png" alt="close-icon">
+                <img ng-click = "refresh()" class="icon" src="./assets/icons/close.png" alt="close-icon">
             </div>
         </div>
         <!--END_ADD_TODO-->
 
         <div id="delete_todo" class="action_todo">
-            <div class="todo" ng-repeat="todo in todos">
-                <input type="checkbox" class = "remove" name="check" ng-model="todo.isDone">
-                <span ng-class="{strike: todo.isDone}" class="todo-text font--bold font--small remove">{{ todo.text }}</span>
+            <div class="todo" ng-repeat="todoDelete in todosDelete">
+                <input type="checkbox" class = "remove" name="check" ng-model="todoDelete.isDone">
+                <span ng-class="{strike: todoDelete.isDone}" class="todo-text font--bold font--small remove">{{ todoDelete.text }}</span>
             </div>
 
             <div id="delete-form">
                 <form action="" method="POST">
-                    <div id="add-btn" class="btn btn--red font--small font--bold font--white">Delete</div>
+                    <div ng-click = "deleteManyTodos()" id="add-btn" class="btn btn--red font--small font--bold font--white">Delete</div>
                 </form>
 
             </div>
 
             <div id="close-delete-form">
-                <img class="icon" src="./assets/icons/close.png" alt="close-icon">
+                <img ng-click = "refresh()" class="icon" src="./assets/icons/close.png" alt="close-icon">
             </div>
         </div><!--END-DELETE_TODO-->
 
         <div id="edit_todo" class="action_todo">
-            <div class="todo" ng-repeat="todo in todos">
-                <input type="checkbox" class = "tick" name="check" ng-model="todo.isDone">
+            <div class="todo" ng-repeat="todoEdit in todosEdit">
+                <input type="checkbox" class = "tick" name="check" ng-model="todoEdit.isDone">
                 <!-- <span ng-class="{strike: todo.isDone}" class="todo-text font--bold font--small remove">{{ todo.text }}</span> -->
-                <input class="todo-text font--bold font--small" type="text" value="{{ todo.text }}">
+                <input ng-disabled = "todoEdit.isDone" ng-model = "todoEdit.text" class="todo-text font--bold font--small" type="text" value="{{ todoEdit.text }}">
             </div>
 
             <div id="edit-form">
-                <form action="" method="POST">
-                    <div id="edit-btn" class="btn btn--green font--small font--bold font--white">Edit</div>
-                </form>
-
+                <div ng-click = "updateManyTodos()" id="edit-btn" class="btn btn--green font--small font--bold font--white">Edit</div>
             </div>
 
             <div id="close-edit-form">
-                <img class="icon" src="./assets/icons/close.png" alt="close-icon">
+                <img ng-click = "refresh()" class="icon" src="./assets/icons/close.png" alt="close-icon">
             </div>
-        </div><!--END-DELETE_TODO-->
+        </div><!--END-EDIT_TODO-->
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
     <script src="./assets/JS/main/app.js"></script>
